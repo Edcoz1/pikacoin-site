@@ -65,7 +65,23 @@
   }
 
   /* All real content above overlays */
-  nav, .ticker, section, footer, .toast { position: relative; z-index: 3; }
+  nav, .ticker, section, footer, .toast, .top-banner { position: relative; z-index: 3; }
+
+  /* ===== TOP BANNER ===== */
+  .top-banner {
+    width: 100%;
+    line-height: 0;
+    border-bottom: 3px solid var(--ink);
+    overflow: hidden;
+  }
+  .top-banner img {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 320px;
+    object-fit: cover;
+    object-position: center;
+  }
 
   /* ===== TICKER ===== */
   .ticker {
@@ -382,10 +398,6 @@
     text-shadow: 4px 4px 0 var(--pika-deep);
   }
   .origin-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: start;
     margin-top: 50px;
   }
   .origin-text p {
@@ -408,30 +420,30 @@
     font-size: 20px;
     letter-spacing: 1px;
   }
-  .tweet-frame {
+  .tweet-mini {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    max-width: 520px;
+    margin-top: 28px;
+    padding: 12px 16px;
     background: var(--ink);
-    border: 3px solid var(--pika-deep);
-    border-radius: 12px;
-    padding: 6px;
-    box-shadow: 10px 10px 0 var(--pika-deep);
-    transition: transform 0.2s;
+    border: 2px solid var(--pika-deep);
+    border-radius: 10px;
+    box-shadow: 6px 6px 0 var(--pika-deep);
   }
-  .tweet-frame:hover {
-    transform: translate(-3px, -3px);
-    box-shadow: 13px 13px 0 var(--pika-deep);
-  }
-  .tweet-frame img {
-    width: 100%;
+  .tweet-mini img {
+    width: 150px;
+    border-radius: 6px;
     display: block;
-    border-radius: 8px;
+    flex-shrink: 0;
   }
-  .tweet-caption {
+  .tweet-mini span {
     font-family: 'VT323', monospace;
     font-size: 18px;
-    color: var(--pika-deep);
-    margin-top: 18px;
-    text-align: center;
-    letter-spacing: 2px;
+    color: var(--pika-light);
+    letter-spacing: 1px;
+    line-height: 1.4;
   }
   .forum-card {
     background: rgba(255, 203, 5, 0.06);
@@ -732,6 +744,11 @@
 </head>
 <body>
 
+<!-- ===== TOP BANNER ===== -->
+<div class="top-banner">
+  <img src="banner.jpg" alt="PikaCoin — Est. 2014">
+</div>
+
 <!-- ===== TICKER ===== -->
 <div class="ticker">
   <div class="ticker-track">
@@ -817,13 +834,11 @@
           <div class="forum-header">▼ BITCOINTALK.ORG · TOPIC 468915</div>
           The original thread is still online, exactly as the dev left it. <a href="https://bitcointalk.org/index.php?topic=468915" target="_blank" rel="noopener">Read the archive →</a>
         </div>
-      </div>
 
-      <div>
-        <div class="tweet-frame">
-          <img src="tweet.png" alt="Original PikaCoin tweet from February 2014">
+        <div class="tweet-mini">
+          <img src="tweet.png" alt="Original PikaCoin tweet, 2014-02-16">
+          <span>↗ Plus, the original tweet — 2014-02-16</span>
         </div>
-        <div class="tweet-caption">↑ THE ORIGINAL TWEET · 2014-02-16 ↑</div>
       </div>
     </div>
   </div>
